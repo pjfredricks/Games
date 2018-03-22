@@ -38,9 +38,13 @@ public class NATO_phonetics
 		map.put('y',"yankee");
 		map.put('z',"zulu");		
 		
-		System.out.println("Welcome to the NATO phonetic alphabet game");
+		System.out.println("?????????????????????????Welcome to the NATO phonetic alphabet game?????????????????????????????");
+		System.out.println("\nYour aim is to type the corresponding phonetic for the character displayed...."
+				+ "\nSince this is a recall test and not a typing test you are allowed to make minor spelling mistakes......"
+				+ "\nSimilar sounding words ex. new-knew are allowed as well........."
+				+ "\nHave fun and Good luck!!!!");
 		
-		System.out.println("Enter your username");
+		System.out.println("\nEnter your username");
 		name = s.nextLine();
 		
 		System.out.println("Enter a time limit(in seconds)");
@@ -59,23 +63,23 @@ public class NATO_phonetics
 			
 			if(elapsedtime>limit)
 			{
-				System.out.println("Time expired - your answer will not be counted");
+				System.out.println("\nTime expired - your answer will not be counted");
 				continue;
 			}
 			else
 			{
-				if((answer.toLowerCase()).equals(map.get(rchar)))
-					{
-						System.out.println("Thats the correct answer");
-						score += 1;
-					}
-					else
-					{
-						System.out.println("You were wrong");
-						System.out.println("The correct answer is " + map.get(rchar));
+				if(/* Levenshtien.LD(/map.get(rchar),answer) < 3 ||*/ Soundex.check(map.get(rchar),answer)) //|| (answer.toLowerCase()).equals(map.get(rchar)))
+				{
+					System.out.println("\nThats the correct answer (Y)");
+					score += 1;
+						}
+				else
+				{
+					System.out.println("\nYOU WERE WRONG!!");
+					//System.out.println("The correct answer is " + map.get(rchar));
 					}
 				}
-			}	
+		}
 		System.out.println("\nYour score is " + score);
 		if(score == 10)
 			System.out.println("You're a master of phonetics");
@@ -84,6 +88,5 @@ public class NATO_phonetics
 		else
 			System.out.println("You Sierra Uniform Charlie Kilo at this");
 		s.close(); 
+		}
 	}
-
-}

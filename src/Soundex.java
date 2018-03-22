@@ -1,4 +1,4 @@
-import java.util.Scanner;
+
 
 public class Soundex 
 {
@@ -55,36 +55,30 @@ public class Soundex
 		op = op +"0000";	
 		return op.substring(0,4);			
 	}
+	public static boolean check(String word1,String word2) {
+		// TODO Auto-generated method stub
+		String  code1, code2;
+		code1 = generate(word1);
+		code2 = generate(word2);
+		
+		if(code1.equals(code2))
+		{
+			return true;
+		}
+		else 
+			return false;
+		
+		
+		/*	System.out.println(code1);
+		System.out.println(code2);
+		System.out.println(check(code1,code2));
+		*/
+	}
+	
 	
 	public static void main(String[] args) 
 	{
-		String word1,word2;
-		String  code1,code2;
-		Scanner s = new Scanner(System.in);
 		
-		System.out.println("Enter a word");
-		word1 = s.next();
-		code1 = generate(word1);
-		
-		System.out.println("Enter another word");
-		word2 = s.next();
-		code2 = generate(word2);
-		
-		
-		
-		if(code1.equals(code2))
-		{	
-			System.out.println("code1="+code1);
-			System.out.println("code2="+code2);
-			System.out.println("These words are homophones");
-		}
-		else
-		{
-			System.out.println("code1="+code1);
-			System.out.println("code2="+code2);
-			System.out.println("They aren't homophones");
-		}
-		s.close();
+	
 	}
-
 }
