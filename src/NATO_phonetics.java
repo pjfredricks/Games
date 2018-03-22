@@ -68,7 +68,7 @@ public class NATO_phonetics
 			}
 			else
 			{
-				if(/* Levenshtien.LD(/map.get(rchar),answer) < 3 ||*/ Soundex.check(map.get(rchar),answer)) //|| (answer.toLowerCase()).equals(map.get(rchar)))
+				if( Levenshtien.LD(map.get(rchar),answer) < 3 || Soundex.check(map.get(rchar),answer)) //|| (answer.toLowerCase()).equals(map.get(rchar)))
 				{
 					System.out.println("\nThats the correct answer (Y)");
 					score += 1;
@@ -85,6 +85,8 @@ public class NATO_phonetics
 			System.out.println("You're a master of phonetics");
 		else if(score>5)
 			System.out.println("You're good but not good enough");
+		else if(score>2)
+			System.out.println("You need to get better");
 		else
 			System.out.println("You Sierra Uniform Charlie Kilo at this");
 		s.close(); 
